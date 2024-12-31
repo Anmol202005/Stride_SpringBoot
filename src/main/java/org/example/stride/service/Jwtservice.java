@@ -18,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
-@Deprecated
 public class Jwtservice {
     public static final int INT = 60;
     public static final int INT1 = 24;

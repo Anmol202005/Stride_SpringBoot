@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.example.stride.model.Enum.Achievements;
 import org.example.stride.model.Enum.ActivityLevel;
 import org.example.stride.model.Enum.Gender;
@@ -25,14 +26,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 @Entity
 @Table(name = "user")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private transient UUID userId;
-    private String UserName ;
-//    private String LastName;
+    private String Username ;
     private String email;
     private String password;
     private Gender gender;
@@ -47,6 +48,8 @@ public class User implements UserDetails {
     private Achievements achievements;
     private WorkoutPreference workoutPreference;
     private ActivityLevel activityLevel;
+    private Boolean isVerified;
+    private Boolean changePassword;
 
       @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
